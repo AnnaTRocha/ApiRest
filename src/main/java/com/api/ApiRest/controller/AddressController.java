@@ -20,28 +20,28 @@ import com.api.ApiRest.model.repository.AddressRepository;
 public class AddressController {
 
 	@Autowired
-	private AddressRepository enderecoRepository;
+	private AddressRepository addressRepository;
 	
-	@GetMapping(path = "/endereco-id/{id}")
-	private Optional<Address> pesquisarEnderecoPorId(
+	@GetMapping(path = "/address-id/{id}")
+	private Optional<Address> findAddressById(
 			@PathVariable(name = "id", required = true) Long id){
-		return enderecoRepository.findById(id);
+		return addressRepository.findById(id);
 	}	
 	
-	@GetMapping(path = "/endereco")
-	private List<Address> pesquisarEnderecoPorId(){
-		return enderecoRepository.findAll();
+	@GetMapping(path = "/address")
+	private List<Address> findAllAddress(){
+		return addressRepository.findAll();
 	}
 	
-	@PostMapping(path = "endereco-save")
-	public void salvarEndereco(@RequestBody Address endereco) {
-		enderecoRepository.save(endereco);
+	@PostMapping(path = "address-save")
+	public void saveAddress(@RequestBody Address address) {
+		addressRepository.save(address);
 	}
 	
-	@DeleteMapping(path = "endereco-delete-id/{}")
-	public void deleteEndereco(
+	@DeleteMapping(path = "address-delete-id/{}")
+	public void deleteAddress(
 			@PathVariable(name = "id", required = true) Long id) {
-		enderecoRepository.deleteById(id);
+		addressRepository.deleteById(id);
 	}
 	
 }

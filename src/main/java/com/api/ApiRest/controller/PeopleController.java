@@ -17,12 +17,12 @@ import com.api.ApiRest.model.repository.PeopleRepository;
 public class PeopleController {
 	
 	@Autowired
-	private PeopleRepository pessoaRepository;
+	private PeopleRepository peopleRepository;
 	
-	@GetMapping(path = "/pessoa-id/{}")
-	public ResponseEntity<Optional<People>> pesquisarPessoaPorId(
-			@PathVariable(name = "id", required = true) Long idPessoa) {
-		return ResponseEntity.ok(pessoaRepository.findById(idPessoa));
+	@GetMapping(path = "/people-id/{}")
+	public ResponseEntity<Optional<People>> findPeopleById(
+			@PathVariable(name = "id", required = true) Long id) {
+		return ResponseEntity.ok(peopleRepository.findById(id));
 	}
 
 }
