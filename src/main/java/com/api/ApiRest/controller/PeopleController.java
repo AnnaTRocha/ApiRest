@@ -9,18 +9,18 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.api.ApiRest.model.Pessoa;
-import com.api.ApiRest.model.repository.PessoaRepository;
+import com.api.ApiRest.model.People;
+import com.api.ApiRest.model.repository.PeopleRepository;
 
 @RestController
 @RequestMapping(value = "api")
-public class PessoaController {
+public class PeopleController {
 	
 	@Autowired
-	private PessoaRepository pessoaRepository;
+	private PeopleRepository pessoaRepository;
 	
 	@GetMapping(path = "/pessoa-id/{}")
-	public ResponseEntity<Optional<Pessoa>> pesquisarPessoaPorId(
+	public ResponseEntity<Optional<People>> pesquisarPessoaPorId(
 			@PathVariable(name = "id", required = true) Long idPessoa) {
 		return ResponseEntity.ok(pessoaRepository.findById(idPessoa));
 	}

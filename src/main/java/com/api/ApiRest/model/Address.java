@@ -9,8 +9,8 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table (name = "endereco")
-public class Endereco implements Serializable {
+@Table (name = "address")
+public class Address implements Serializable {
 	
 	private static final long serialVersionUID = 3582505526442107878L;
 
@@ -18,13 +18,13 @@ public class Endereco implements Serializable {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 	
-	private String logradouro;
+	private String city;
 	
 	private String cep;
 	
-	private String numero;
+	private String number;
 	
-	public Endereco() {	}
+	public Address() {	}
 
 	public Long getId() {
 		return id;
@@ -34,12 +34,12 @@ public class Endereco implements Serializable {
 		this.id = id;
 	}
 
-	public String getLogradouro() {
-		return logradouro;
+	public String getCity() {
+		return city;
 	}
 
-	public void setLogradouro(String logradouro) {
-		this.logradouro = logradouro;
+	public void setCity(String city) {
+		this.city = city;
 	}
 
 	public String getCep() {
@@ -50,11 +50,12 @@ public class Endereco implements Serializable {
 		this.cep = cep;
 	}
 
-	public String getNumero() {
-		return numero;
+	public String getNumber() {
+		return number;
 	}
 
-	public void setNumero(String numero) {
-		this.numero = numero;
+	public void setNumber(String number) {
+		this.number = number;
 	}
+	
 }

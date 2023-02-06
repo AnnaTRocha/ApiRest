@@ -12,29 +12,29 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.api.ApiRest.model.Endereco;
-import com.api.ApiRest.model.repository.EnderecoRepository;
+import com.api.ApiRest.model.Address;
+import com.api.ApiRest.model.repository.AddressRepository;
 
 @RestController
 @RequestMapping(value = "api")
-public class EnderecoController {
+public class AddressController {
 
 	@Autowired
-	private EnderecoRepository enderecoRepository;
+	private AddressRepository enderecoRepository;
 	
 	@GetMapping(path = "/endereco-id/{id}")
-	private Optional<Endereco> pesquisarEnderecoPorId(
+	private Optional<Address> pesquisarEnderecoPorId(
 			@PathVariable(name = "id", required = true) Long id){
 		return enderecoRepository.findById(id);
 	}	
 	
 	@GetMapping(path = "/endereco")
-	private List<Endereco> pesquisarEnderecoPorId(){
+	private List<Address> pesquisarEnderecoPorId(){
 		return enderecoRepository.findAll();
 	}
 	
 	@PostMapping(path = "endereco-save")
-	public void salvarEndereco(@RequestBody Endereco endereco) {
+	public void salvarEndereco(@RequestBody Address endereco) {
 		enderecoRepository.save(endereco);
 	}
 	
