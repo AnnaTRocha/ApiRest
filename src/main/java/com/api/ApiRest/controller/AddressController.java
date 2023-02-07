@@ -12,8 +12,11 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.api.ApiRest.controller.service.FindAddressService;
+import com.api.ApiRest.controller.service.SaveAddressService;
 import com.api.ApiRest.model.Address;
 import com.api.ApiRest.model.repository.AddressRepository;
+import com.api.ApiRest.model.resource.AddressResource;
 
 @RestController
 @RequestMapping(value = "api")
@@ -21,6 +24,12 @@ public class AddressController {
 
 	@Autowired
 	private AddressRepository addressRepository;
+	
+	@Autowired
+	private FindAddressService findAddressService;
+	
+	@Autowired
+	private SaveAddressService saveAddressService;
 	
 	@GetMapping(path = "/address-id/{id}")
 	private Optional<Address> findAddressById(
@@ -30,12 +39,12 @@ public class AddressController {
 	
 	@GetMapping(path = "/address")
 	private List<Address> findAllAddress(){
-		return addressRepository.findAll();
+		return findAddressService.findAllAddress();
 	}
 	
 	@PostMapping(path = "address-save")
-	public void saveAddress(@RequestBody Address address) {
-		addressRepository.save(address);
+	public void saveAddress(@RequestBody AddressResource address) {
+		saveAddressService.saveAddress(address);
 	}
 	
 	@DeleteMapping(path = "address-delete-id/{}")
