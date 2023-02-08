@@ -1,7 +1,6 @@
 package com.api.ApiRest.controller;
 
 import java.util.List;
-import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -15,7 +14,6 @@ import org.springframework.web.bind.annotation.RestController;
 import com.api.ApiRest.controller.service.FindAddressService;
 import com.api.ApiRest.controller.service.SaveAddressService;
 import com.api.ApiRest.model.Address;
-import com.api.ApiRest.model.repository.AddressRepository;
 import com.api.ApiRest.model.resource.AddressResource;
 
 @RestController
@@ -23,18 +21,15 @@ import com.api.ApiRest.model.resource.AddressResource;
 public class AddressController {
 
 	@Autowired
-	private AddressRepository addressRepository;
-	
-	@Autowired
 	private FindAddressService findAddressService;
 	
 	@Autowired
 	private SaveAddressService saveAddressService;
 	
 	@GetMapping(path = "/address-id/{id}")
-	private Optional<Address> findAddressById(
+	private Address findAddressById(
 			@PathVariable(name = "id", required = true) Long id){
-		return addressRepository.findById(id);
+		return findAddressService.findAddressById(id);
 	}	
 	
 	@GetMapping(path = "/address")
@@ -50,7 +45,7 @@ public class AddressController {
 	@DeleteMapping(path = "address-delete-id/{}")
 	public void deleteAddress(
 			@PathVariable(name = "id", required = true) Long id) {
-		addressRepository.deleteById(id);
+		findAddressService.deleteAddress(id);
 	}
 	
 }
