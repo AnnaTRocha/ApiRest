@@ -1,7 +1,7 @@
 # ApiRest
 Api register
 
-É uma api para cadastrar usuários e suas localidades, possuindo duas tabelas:
+É uma api feita utilizando o Sprint boot para cadastrar usuários e suas localidades, possuindo duas tabelas:
 
 Tabela PEOPLE 
 
