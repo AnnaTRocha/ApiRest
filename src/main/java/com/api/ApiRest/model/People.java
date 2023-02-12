@@ -29,7 +29,7 @@ public class People implements Serializable {
 	
 	@ManyToOne
 	@JoinColumn(nullable = false)
-	private Address Address;
+	private Address address;
 	
 	public People() { }
 
@@ -58,11 +58,11 @@ public class People implements Serializable {
 	}
 
 	public Address getAddress() {
-		return Address;
+		return address;
 	}
 
 	public void setAddress(Address address) {
-		Address = address;
+		this.address = address;
 	}
 	
 }
