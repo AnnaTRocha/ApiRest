@@ -27,10 +27,10 @@ public class PeopleController {
 	@Autowired
 	private SavePeopleService savePeople;
 	
-	@GetMapping(path = "/people-id/{}")
-	public ResponseEntity<People> findPeopleById(
+	@GetMapping(path = "/people-id/{id}")
+	public People findPeopleById(
 			@PathVariable(name = "id", required = true) Long id) {
-		return ResponseEntity.ok(findPeople.findPeopleById(id));
+		return findPeople.findPeopleById(id);
 	}
 	
 	@GetMapping(path = "/people")
@@ -43,7 +43,7 @@ public class PeopleController {
 		savePeople.savePeople(people);
 	}
 	
-	@DeleteMapping(path = "people-delete-id/{}")
+	@DeleteMapping(path = "people-delete-id/{id}")
 	public void deletePeople(
 			@PathVariable(name = "id", required = true) Long id) {
 		findPeople.deletePeople(id);
