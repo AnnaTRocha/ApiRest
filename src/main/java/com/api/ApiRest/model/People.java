@@ -33,6 +33,13 @@ public class People implements Serializable {
 	
 	public People() { }
 
+	public People(Long id, String name, Date birthDate, Address address) {
+		this.id = id;
+		this.name = name;
+		this.birthDate = birthDate;
+		this.address = address;
+	}
+
 	public Long getId() {
 		return id;
 	}

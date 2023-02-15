@@ -22,8 +22,6 @@ public class Address implements Serializable {
 	
 	private String cep;
 	
-	private String number;
-	
 	public Address() {	}
 
 	public Long getId() {
@@ -48,14 +46,6 @@ public class Address implements Serializable {
 
 	public void setCep(String cep) {
 		this.cep = cep;
-	}
-
-	public String getNumber() {
-		return number;
-	}
-
-	public void setNumber(String number) {
-		this.number = number;
 	}
 	
 }

@@ -14,7 +14,6 @@ public class ConversorAddressService {
 		address.setId(Long.parseLong(addressResource.getId()));
 		address.setCity(addressResource.getCity());
 		address.setCep(addressResource.getCep());
-		address.setNumber(addressResource.getNumber());
 		return address;
 		
 	}
